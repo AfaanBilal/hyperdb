@@ -41,6 +41,14 @@ impl HyperStore {
         self.data.is_empty()
     }
 
+    pub fn clear(&mut self) {
+        self.data.clear()
+    }
+
+    pub fn print_all(&self) {
+        println!("{:#?}", self.data)
+    }
+
     pub fn get_file(&self) -> &String {
         &self.file
     }

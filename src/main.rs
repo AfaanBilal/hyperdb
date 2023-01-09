@@ -27,4 +27,12 @@ fn main() {
     hs.set("hyper", "fast");
 
     println!("{}", hs.get("hyper"));
+
+    hs.print_all();
+
+    hs.clear();
+
+    assert_eq!(hs.is_empty(), true);
+
+    hs.print_all();
 }
