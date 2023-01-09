@@ -30,6 +30,10 @@ fn main() {
 
     hs.print_all();
 
+    println!("Length: {}", hs.len());
+
+    hs.delete("hyper");
+
     hs.clear();
 
     assert_eq!(hs.is_empty(), true);

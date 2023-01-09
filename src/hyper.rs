@@ -37,6 +37,14 @@ impl HyperStore {
         self.data.contains_key(key)
     }
 
+    pub fn delete(&mut self, key: &str) {
+        self.data.remove(key);
+    }
+
+    pub fn len(&mut self) -> usize {
+        self.data.len()
+    }
+
     pub fn is_empty(&self) -> bool {
         self.data.is_empty()
     }
