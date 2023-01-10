@@ -12,7 +12,7 @@ use std::sync::{Arc, Mutex};
 
 use actix_web::{web::Data, App, HttpServer};
 
-const DEFAULT_HOST: &str = "127.0.0.1";
+const DEFAULT_HOST: &str = "0.0.0.0";
 const DEFAULT_PORT: u16 = 8765;
 
 #[actix_web::main]
