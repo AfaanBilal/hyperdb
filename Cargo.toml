@@ -7,3 +7,4 @@ authors = ["Afaan Bilal <hello@afaan.dev>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+actix-web = "4"

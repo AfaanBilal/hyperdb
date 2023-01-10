@@ -1,5 +1,3 @@
-mod hyper;
-
 /**
  * HyperDB
  *
@@ -8,35 +6,30 @@ mod hyper;
  * @author Afaan Bilal
  * @link   https://afaan.dev
  */
+mod hyper;
+mod server;
+use std::sync::{Arc, Mutex};
 
-fn main() {
-    let mut hs = hyper::HyperStore::new("store.hyper");
+use actix_web::{web::Data, App, HttpServer};
 
-    println!("[HyperStore] init: {}", hs.get_file());
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    let hs = Data::new(Arc::new(Mutex::new(hyper::HyperStore::new("store.hyper"))));
 
-    assert_eq!(hs.is_empty(), true);
-    assert_eq!(hs.has("hyper"), false);
-
-    hs.set("hyper", "store");
-
-    assert_ne!(hs.is_empty(), true);
-    assert_ne!(hs.has("hyper"), false);
-
-    println!("{}", hs.get("keyNotFound"));
-
-    hs.set("hyper", "fast");
-
-    println!("{}", hs.get("hyper"));
-
-    hs.print_all();
-
-    println!("Length: {}", hs.len());
-
-    hs.delete("hyper");
-
-    hs.clear();
-
-    assert_eq!(hs.is_empty(), true);
-
-    hs.print_all();
+    HttpServer::new(move || {
+        App::new()
+            .app_data(hs.clone())
+            .service(server::index)
+            .service(server::ping)
+            .service(server::has)
+            .service(server::get)
+            .service(server::set)
+            .service(server::delete)
+            .service(server::all)
+            .service(server::clear)
+            .service(server::empty)
+    })
+    .bind(("127.0.0.1", 8080))?
+    .run()
+    .await
 }

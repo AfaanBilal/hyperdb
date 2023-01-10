@@ -8,12 +8,13 @@
  */
 use std::collections::HashMap;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct HyperStore {
     data: HashMap<String, String>,
     file: String,
 }
 
+#[allow(dead_code)]
 impl HyperStore {
     pub fn new(file: &str) -> HyperStore {
         HyperStore {
@@ -26,10 +27,10 @@ impl HyperStore {
         self.data.insert(key.to_string(), value.to_string());
     }
 
-    pub fn get(&self, key: &str) -> &str {
+    pub fn get(&self, key: &str) -> String {
         match self.data.get(key) {
-            Some(value) => value,
-            None => "",
+            Some(value) => value.to_string(),
+            None => String::from(""),
         }
     }
 
@@ -39,6 +40,10 @@ impl HyperStore {
 
     pub fn delete(&mut self, key: &str) {
         self.data.remove(key);
+    }
+
+    pub fn all(&self) -> String {
+        format!("{:#?}", self.data)
     }
 
     pub fn len(&mut self) -> usize {
