@@ -109,21 +109,23 @@ Req/Bytes counts sampled once per second.
 
 ````
     Finished test [unoptimized + debuginfo] target(s) in 0.11s
-     Running unittests src\main.rs (target\debug\deps\hyperdb-6884b447c6b75f1d.exe)
+     Running unittests src\main.rs (target\debug\deps\hyperdb-11cc96418dbb140b.exe)
 
-running 10 tests
+running 12 tests
 test hyper::tests::has_file ... ok
-test hyper::tests::it_clears ... ok
-test hyper::tests::start_from_empty ... ok
-test hyper::tests::key_is_deleted ... ok
 test hyper::tests::key_not_present ... ok
-test hyper::tests::key_is_stored ... ok
 test hyper::tests::not_empty ... ok
+test hyper::tests::it_clears ... ok
+test hyper::tests::key_is_deleted ... ok
 test hyper::tests::len_not_zero ... ok
+test hyper::tests::key_is_stored ... ok
+test hyper::tests::start_from_empty ... ok
 test hyper::tests::start_len_zero ... ok
 test hyper::tests::value_is_stored ... ok
+test hyper::tests::saves_to_file ... ok
+test hyper::tests::reloads_from_file ... ok
 
-test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ````
 
 ## Contributing
