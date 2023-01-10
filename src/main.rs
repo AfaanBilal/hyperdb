@@ -12,9 +12,22 @@ use std::sync::{Arc, Mutex};
 
 use actix_web::{web::Data, App, HttpServer};
 
+const DEFAULT_HOST: &str = "127.0.0.1";
+const DEFAULT_PORT: u16 = 8765;
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let hs = Data::new(Arc::new(Mutex::new(hyper::HyperStore::new("store.hyper"))));
+
+    let host: &str = match option_env!("HYPERDB_HOST") {
+        Some(p) => p,
+        None => DEFAULT_HOST,
+    };
+
+    let port: u16 = match option_env!("HYPERDB_PORT") {
+        Some(p) => p.parse::<u16>().unwrap(),
+        None => DEFAULT_PORT,
+    };
 
     HttpServer::new(move || {
         App::new()
@@ -29,7 +42,7 @@ async fn main() -> std::io::Result<()> {
             .service(server::clear)
             .service(server::empty)
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind((host, port))?
     .run()
     .await
 }
