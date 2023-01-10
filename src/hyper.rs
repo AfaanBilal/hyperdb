@@ -17,8 +17,13 @@ pub struct HyperStore {
 #[allow(dead_code)]
 impl HyperStore {
     pub fn new(file: &str) -> HyperStore {
+        let data = match std::fs::read_to_string(&file) {
+            Ok(d) => serde_json::from_str::<HashMap<String, String>>(&d).unwrap(),
+            Err(_e) => HashMap::new(),
+        };
+
         HyperStore {
-            data: HashMap::new(),
+            data,
             file: file.to_string(),
         }
     }
@@ -65,6 +70,15 @@ impl HyperStore {
     pub fn get_file(&self) -> &String {
         &self.file
     }
+
+    pub fn save_to_file(&self) {
+        std::fs::write(&self.file, serde_json::to_string(&self.data).unwrap()).unwrap();
+    }
+
+    pub fn reset(&mut self) {
+        self.data.clear();
+        self.save_to_file();
+    }
 }
 
 #[cfg(test)]
@@ -77,6 +91,21 @@ mod tests {
     fn has_file() {
         let hs = HyperStore::new(DEFAULT_FILE);
         assert_eq!(hs.get_file(), DEFAULT_FILE);
+    }
+
+    #[test]
+    fn saves_to_file() {
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        hs.set("hyper", "db");
+        hs.set("super", "fast");
+        hs.save_to_file();
+        assert_eq!(std::path::Path::new(&hs.file).exists(), true);
+
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        assert_eq!(hs.get("hyper"), "db");
+
+        // Cleanup
+        hs.reset();
     }
 
     #[test]
