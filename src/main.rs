@@ -29,6 +29,9 @@ async fn main() -> std::io::Result<()> {
         None => DEFAULT_PORT,
     };
 
+    let version = server::version();
+    println!("{version}: Server starting on {host}:{port}");
+
     HttpServer::new(move || {
         App::new()
             .app_data(hs.clone())

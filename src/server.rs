@@ -15,10 +15,14 @@ use actix_web::{
 };
 use std::sync::{Arc, Mutex};
 
-#[get("/")]
-pub async fn index() -> impl Responder {
+pub fn version() -> String {
     let version = option_env!("CARGO_PKG_VERSION").unwrap();
     format!("[HyperDB v{version} (https://afaan.dev)]")
+}
+
+#[get("/")]
+pub async fn index() -> impl Responder {
+    version()
 }
 
 #[get("/ping")]
