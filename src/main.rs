@@ -8,7 +8,10 @@
  */
 mod hyper;
 mod server;
-use std::sync::{Arc, Mutex};
+use std::{
+    env,
+    sync::{Arc, Mutex},
+};
 
 use actix_web::{web::Data, App, HttpServer};
 
@@ -19,15 +22,8 @@ const DEFAULT_PORT: u16 = 8765;
 async fn main() -> std::io::Result<()> {
     let hs = Data::new(Arc::new(Mutex::new(hyper::HyperStore::new("store.hyper"))));
 
-    let host: &str = match option_env!("HYPERDB_HOST") {
-        Some(p) => p,
-        None => DEFAULT_HOST,
-    };
-
-    let port: u16 = match option_env!("HYPERDB_PORT") {
-        Some(p) => p.parse::<u16>().unwrap(),
-        None => DEFAULT_PORT,
-    };
+    let host: String = env::var("HYPERDB_HOST").unwrap_or(DEFAULT_HOST.to_string());
+    let port: u16 = env::var("HYPERDB_PORT").unwrap_or(DEFAULT_PORT.to_string()).parse().unwrap_or(DEFAULT_PORT);
 
     let version = server::version();
     println!("{version}: Server starting on {host}:{port}");
