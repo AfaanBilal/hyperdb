@@ -22,7 +22,7 @@ The following environment variables configure the serve.
 | Method | Path             | Description
 | ------ | ---------------- | -----------
 | GET    | /                | Introduction
-| GET    | /ping            | Ping (returns PONG)
+| GET    | /ping            | Ping (returns `PONG`)
 | GET    | /has/`{key}`     | Returns `Yes` if `key` is present, otherwise `No`
 | GET    | /data/`{key}`    | Returns the value for the `key` if present, otherwise `""`
 | POST   | /data/`{key}`    | Sets the value for the `key` to the request body
