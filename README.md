@@ -9,6 +9,9 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 ## Build and Run
 Start the HTTP server: `cargo run`
 
+## Test
+Test HyperDB: `cargo test`
+
 ## Configuration
 The following environment variables configure the serve.
 
