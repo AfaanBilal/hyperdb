@@ -6,10 +6,19 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 ## Introduction
 **HyperDB** is an in-memory hyper-fast key-value store written in Rust.
 
+## Run with Docker
+`docker build -t hyperdb .`
+
+`docker run --rm -p 8765:8765 hyperdb`
+
+````
+[HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 0.0.0.0:8765
+````
+
 ## Build and Run
 Start the HTTP server: `cargo run`
 ````
-[HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 127.0.0.1:8765
+[HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 0.0.0.0:8765
 ````
 
 ## Configuration
