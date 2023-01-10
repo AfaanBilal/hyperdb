@@ -16,7 +16,8 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 ````
 
 ## Build and Run
-Start the HTTP server: `cargo run`
+`cargo run`
+
 ````
 [HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 0.0.0.0:8765
 ````
@@ -44,7 +45,8 @@ The following environment variables configure the serve.
 | GET    | /empty           | Returns `Yes` if the store is empty, otherwise `No`.
 
 ## Test
-Test HyperDB: `cargo test`
+`cargo test`
+
 ````
     Finished test [unoptimized + debuginfo] target(s) in 0.11s
      Running unittests src\main.rs (target\debug\deps\hyperdb-6884b447c6b75f1d.exe)
