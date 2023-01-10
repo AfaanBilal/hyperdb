@@ -46,7 +46,7 @@ impl HyperStore {
         format!("{:#?}", self.data)
     }
 
-    pub fn len(&mut self) -> usize {
+    pub fn len(&self) -> usize {
         self.data.len()
     }
 
@@ -64,5 +64,80 @@ impl HyperStore {
 
     pub fn get_file(&self) -> &String {
         &self.file
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const DEFAULT_FILE: &str = "store.hyper";
+
+    #[test]
+    fn has_file() {
+        let hs = HyperStore::new(DEFAULT_FILE);
+        assert_eq!(hs.get_file(), DEFAULT_FILE);
+    }
+
+    #[test]
+    fn start_from_empty() {
+        let hs = HyperStore::new(DEFAULT_FILE);
+        assert_eq!(hs.is_empty(), true);
+    }
+
+    #[test]
+    fn start_len_zero() {
+        let hs = HyperStore::new(DEFAULT_FILE);
+        assert_eq!(hs.len(), 0);
+    }
+
+    #[test]
+    fn key_not_present() {
+        let hs = HyperStore::new(DEFAULT_FILE);
+        assert_eq!(hs.has("hyper"), false);
+    }
+
+    #[test]
+    fn key_is_stored() {
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        hs.set("hyper", "db");
+        assert_eq!(hs.has("hyper"), true);
+    }
+
+    #[test]
+    fn key_is_deleted() {
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        hs.set("hyper", "db");
+        hs.delete("hyper");
+        assert_eq!(hs.has("hyper"), false);
+    }
+
+    #[test]
+    fn value_is_stored() {
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        hs.set("hyper", "db");
+        assert_eq!(hs.get("hyper"), "db");
+    }
+
+    #[test]
+    fn not_empty() {
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        hs.set("hyper", "db");
+        assert_ne!(hs.is_empty(), true);
+    }
+
+    #[test]
+    fn len_not_zero() {
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        hs.set("hyper", "db");
+        assert_ne!(hs.len(), 0);
+    }
+
+    #[test]
+    fn it_clears() {
+        let mut hs = HyperStore::new(DEFAULT_FILE);
+        hs.set("hyper", "db");
+        hs.clear();
+        assert_eq!(hs.is_empty(), true);
     }
 }
