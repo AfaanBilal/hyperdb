@@ -13,14 +13,14 @@ Start the HTTP server: `cargo run`
 The following environment variables configure the serve.
 
 | Environment Variable | Default value | Description
-| -------------------- | ------------- | -----------
+| :------------------- | :------------ | :-----------
 | HYPERDB_HOST         | `127.0.0.1`   | HyperDB HTTP Server Bind Host (Set this to 0.0.0.0 to listen on all)
 | HYPERDB_PORT         | `8765`        | HyperDB HTTP Server Port
 
 ## Endpoints
 
 | Method | Path             | Description
-| ------ | ---------------- | -----------
+| :----- | :--------------- | :-----------
 | GET    | /                | Introduction
 | GET    | /ping            | Ping (returns `PONG`)
 | GET    | /has/`{key}`     | Returns `Yes` if `key` is present, otherwise `No`
