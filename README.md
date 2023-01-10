@@ -8,9 +8,9 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 
 ## Build and Run
 Start the HTTP server: `cargo run`
-
-## Test
-Test HyperDB: `cargo test`
+````
+[HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 127.0.0.1:8765
+````
 
 ## Configuration
 The following environment variables configure the serve.
@@ -33,6 +33,27 @@ The following environment variables configure the serve.
 | GET    | /data            | Get all store data
 | DELETE | /data            | Delete all stored data
 | GET    | /empty           | Returns `Yes` if the store is empty, otherwise `No`
+
+## Test
+Test HyperDB: `cargo test`
+````
+    Finished test [unoptimized + debuginfo] target(s) in 0.11s
+     Running unittests src\main.rs (target\debug\deps\hyperdb-6884b447c6b75f1d.exe)
+
+running 10 tests
+test hyper::tests::has_file ... ok
+test hyper::tests::it_clears ... ok
+test hyper::tests::start_from_empty ... ok
+test hyper::tests::key_is_deleted ... ok
+test hyper::tests::key_not_present ... ok
+test hyper::tests::key_is_stored ... ok
+test hyper::tests::not_empty ... ok
+test hyper::tests::len_not_zero ... ok
+test hyper::tests::start_len_zero ... ok
+test hyper::tests::value_is_stored ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+````
 
 ## Contributing
 All contributions are welcome. Please create an issue first for any feature request
