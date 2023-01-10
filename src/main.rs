@@ -40,6 +40,9 @@ async fn main() -> std::io::Result<()> {
             .service(server::all)
             .service(server::clear)
             .service(server::empty)
+            .service(server::save)
+            .service(server::reload)
+            .service(server::reset)
     })
     .bind((host, port))?
     .run()

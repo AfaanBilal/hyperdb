@@ -87,3 +87,21 @@ pub async fn empty(hs: Data<Arc<Mutex<hyper::HyperStore>>>) -> impl Responder {
         format!("NO")
     }
 }
+
+#[post("/save")]
+pub async fn save(hs: Data<Arc<Mutex<hyper::HyperStore>>>) -> impl Responder {
+    hs.lock().unwrap().save_to_file();
+    format!("OK")
+}
+
+#[post("/reload")]
+pub async fn reload(hs: Data<Arc<Mutex<hyper::HyperStore>>>) -> impl Responder {
+    hs.lock().unwrap().reload();
+    format!("OK")
+}
+
+#[delete("/reset")]
+pub async fn reset(hs: Data<Arc<Mutex<hyper::HyperStore>>>) -> impl Responder {
+    hs.lock().unwrap().reset();
+    format!("OK")
+}

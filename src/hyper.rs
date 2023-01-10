@@ -17,13 +17,8 @@ pub struct HyperStore {
 #[allow(dead_code)]
 impl HyperStore {
     pub fn new(file: &str) -> HyperStore {
-        let data = match std::fs::read_to_string(&file) {
-            Ok(d) => serde_json::from_str::<HashMap<String, String>>(&d).unwrap(),
-            Err(_e) => HashMap::new(),
-        };
-
         HyperStore {
-            data,
+            data: HyperStore::load_from_file(file),
             file: file.to_string(),
         }
     }
@@ -67,12 +62,27 @@ impl HyperStore {
         println!("{:#?}", self.data)
     }
 
+    pub fn set_file(&mut self, file: &str) {
+        self.file = file.to_string();
+    }
+
     pub fn get_file(&self) -> &String {
         &self.file
     }
 
     pub fn save_to_file(&self) {
         std::fs::write(&self.file, serde_json::to_string(&self.data).unwrap()).unwrap();
+    }
+
+    pub fn load_from_file(file: &str) -> HashMap<String, String> {
+        match std::fs::read_to_string(&file) {
+            Ok(d) => serde_json::from_str::<HashMap<String, String>>(&d).unwrap(),
+            Err(_e) => HashMap::new(),
+        }
+    }
+
+    pub fn reload(&mut self) {
+        self.data = HyperStore::load_from_file(&self.file);
     }
 
     pub fn reset(&mut self) {
@@ -95,17 +105,38 @@ mod tests {
 
     #[test]
     fn saves_to_file() {
-        let mut hs = HyperStore::new(DEFAULT_FILE);
+        let mut hs = HyperStore::new("store1.hyper");
+
         hs.set("hyper", "db");
         hs.set("super", "fast");
         hs.save_to_file();
+
         assert_eq!(std::path::Path::new(&hs.file).exists(), true);
 
-        let mut hs = HyperStore::new(DEFAULT_FILE);
+        let hs = HyperStore::new("store1.hyper");
         assert_eq!(hs.get("hyper"), "db");
 
         // Cleanup
-        hs.reset();
+        std::fs::remove_file(&hs.file).expect("Deletion failed");
+    }
+
+    #[test]
+    fn reloads_from_file() {
+        let mut hs = HyperStore::new("store2.hyper");
+
+        hs.set("hyper", "db");
+        hs.set("super", "fast");
+        hs.save_to_file();
+
+        assert_eq!(std::path::Path::new(&hs.file).exists(), true);
+
+        hs.set("hyper", "wrong");
+        hs.reload();
+
+        assert_eq!(hs.get("hyper"), "db");
+
+        // Cleanup
+        std::fs::remove_file(&hs.file).expect("Deletion failed");
     }
 
     #[test]
