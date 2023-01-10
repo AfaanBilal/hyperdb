@@ -24,15 +24,15 @@ The following environment variables configure the serve.
 
 | Method | Path             | Description
 | :----- | :--------------- | :-----------
-| GET    | /                | Introduction
-| GET    | /ping            | Ping (returns `PONG`)
-| GET    | /has/`{key}`     | Returns `Yes` if `key` is present, otherwise `No`
-| GET    | /data/`{key}`    | Returns the value for the `key` if present, otherwise `""`
-| POST   | /data/`{key}`    | Sets the value for the `key` to the request body
-| DELETE | /data/`{key}`    | Deletes the `key` and any value associated with it
-| GET    | /data            | Get all stored data
-| DELETE | /data            | Delete all stored data
-| GET    | /empty           | Returns `Yes` if the store is empty, otherwise `No`
+| GET    | /                | Version. Example: `[HyperDB v0.1.0 (https://afaan.dev)]`.
+| GET    | /ping            | Ping (returns `PONG`).
+| GET    | /has/`{key}`     | Returns `Yes` if `key` is present, otherwise `No`.
+| GET    | /data/`{key}`    | Returns the value for the `key` if present, otherwise `""`.
+| POST   | /data/`{key}`    | Sets the value for the `key` to the request body.
+| DELETE | /data/`{key}`    | Deletes the `key` and any value associated with it. Returns `OK` on success.
+| GET    | /data            | Get all stored data.
+| DELETE | /data            | Delete all stored data. Returns `OK` on success.
+| GET    | /empty           | Returns `Yes` if the store is empty, otherwise `No`.
 
 ## Test
 Test HyperDB: `cargo test`
