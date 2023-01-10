@@ -30,7 +30,7 @@ The following environment variables configure the serve.
 | GET    | /data/`{key}`    | Returns the value for the `key` if present, otherwise `""`
 | POST   | /data/`{key}`    | Sets the value for the `key` to the request body
 | DELETE | /data/`{key}`    | Deletes the `key` and any value associated with it
-| GET    | /data            | Get all store data
+| GET    | /data            | Get all stored data
 | DELETE | /data            | Delete all stored data
 | GET    | /empty           | Returns `Yes` if the store is empty, otherwise `No`
 
