@@ -41,9 +41,9 @@ The following environment variables configure the serve.
 | GET    | /data            | Get all stored data.
 | DELETE | /data            | Delete all stored data. Returns `OK` on success.
 | GET    | /empty           | Returns `Yes` if the store is empty, otherwise `No`.
-| POST   | /save            | Persist store to file.
-| POST   | /reload          | Reload store from file.
-| DELETE | /reset           | Delete all stored data and clear the persistence on file.
+| POST   | /save            | Persist store to file. Returns `OK` on success.
+| POST   | /reload          | Reload store from file. Returns `OK` on success.
+| DELETE | /reset           | Delete all stored data and clear the persistence on file. Returns `OK` on success.
 
 ## Benchmark
 Load test using [autocannon](https://github.com/mcollina/autocannon).
