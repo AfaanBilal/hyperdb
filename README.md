@@ -21,7 +21,7 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 ````
 
 ## Configuration
-The following environment variables configure the serve.
+The following environment variables configure the HTTP server.
 
 | Environment Variable | Default value | Description
 | :------------------- | :------------ | :-----------
