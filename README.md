@@ -54,9 +54,15 @@ The following environment variables configure the HTTP server.
 ---
 
 ## Clients
-| Language    | Source                                                         | Package
-| :---------- | :------------------------------------------------------------- | :----------------------------------------------------------
-| Javascript  | GitHub: [HyperDB JS](https://github.com/AfaanBilal/hyperdb-js) | NPM: [hyperdb-js](https://www.npmjs.com/package/hyperdb-js)
+| Language    | Source            | Package          | Install
+| :---------- | :---------------- | :--------------- | :------
+| Javascript  | [HyperDB JS][1]   | [hyperdb-js][2]  | `npm i hyperdb-js`
+| PHP         | [HyperDB PHP][3]  | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
+
+[1]: https://github.com/AfaanBilal/hyperdb-js
+[2]: https://www.npmjs.com/package/hyperdb-js
+[3]: https://github.com/AfaanBilal/hyperdb-php
+[4]: https://packagist.org/packages/afaanbilal/hyperdb-php
 
 ---
 
