@@ -43,7 +43,7 @@ impl HyperStore {
     }
 
     pub fn all(&self) -> String {
-        format!("{:#?}", self.data)
+        serde_json::to_string(&self.data).unwrap()
     }
 
     pub fn len(&self) -> usize {
