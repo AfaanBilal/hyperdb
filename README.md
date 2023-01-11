@@ -6,6 +6,8 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 ## Introduction
 **HyperDB** is an in-memory hyper-fast key-value store written in Rust.
 
+---
+
 ## Run with Docker
 `$ docker run --rm -p 8765:8765 afaanbilal/hyperdb`
 
@@ -20,6 +22,8 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 [HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 0.0.0.0:8765
 ````
 
+---
+
 ## Configuration
 The following environment variables configure the HTTP server.
 
@@ -27,6 +31,8 @@ The following environment variables configure the HTTP server.
 | :------------------- | :------------ | :-----------
 | HYPERDB_HOST         | `0.0.0.0`     | HyperDB HTTP Server Bind Host
 | HYPERDB_PORT         | `8765`        | HyperDB HTTP Server Port
+
+---
 
 ## Endpoints
 
@@ -45,7 +51,16 @@ The following environment variables configure the HTTP server.
 | POST   | /reload          | Reload store from file. Returns `OK` on success.
 | DELETE | /reset           | Delete all stored data and clear the persistence on file. Returns `OK` on success.
 
-## Benchmark
+---
+
+## Clients
+| Language    | Source                                                         | Package
+| :---------- | :------------------------------------------------------------- | :----------------------------------------------------------
+| Javascript  | GitHub: [HyperDB JS](https://github.com/AfaanBilal/hyperdb-js) | NPM: [hyperdb-js](https://www.npmjs.com/package/hyperdb-js)
+
+---
+
+## Benchmarks
 Load test using [autocannon](https://github.com/mcollina/autocannon).
 
 ### Reading Data (`50,675.2 requests per second`)
@@ -102,6 +117,8 @@ Req/Bytes counts sampled once per second.
 1495k requests in 30.26s, 181 MB read
 ````
 
+---
+
 ## Test
 `$ cargo test`
 
@@ -126,11 +143,15 @@ test hyper::tests::reloads_from_file ... ok
 test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ````
 
+---
+
 ## Contributing
 All contributions are welcome. Please create an issue first for any feature request
 or bug. Then fork the repository, create a branch and make any changes to fix the bug
 or add the feature and create a pull request. That's it!
 Thanks!
+
+---
 
 ## License
 **HyperDB** is released under the MIT License.
