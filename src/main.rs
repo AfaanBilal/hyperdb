@@ -1,4 +1,3 @@
-mod auth;
 /**
  * HyperDB
  *
@@ -7,6 +6,7 @@ mod auth;
  * @author Afaan Bilal
  * @link   https://afaan.dev
  */
+mod auth;
 mod hyper;
 mod server;
 use std::{
