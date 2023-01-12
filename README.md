@@ -44,7 +44,7 @@ The following environment variables configure the HTTP server.
 | :----- | :--------------- | :---- | :-----------
 | GET    | /                | ⬜    | Version. Example: `[HyperDB v0.1.0 (https://afaan.dev)]`.
 | GET    | /ping            | ⬜    | Ping (returns `PONG`).
-| POST   | /auth            | ⬜    | Generate JWT. Returns the generated JWT on success, otherwise `INVALID_CREDENTIALS`.
+| POST   | /auth            | ⬜    | Returns the generated JWT on success, otherwise `INVALID_CREDENTIALS`.
 | GET    | /has/`{key}`     | ✅    | Returns `YES` if `key` is present, otherwise `NO`.
 | GET    | /data/`{key}`    | ✅    | Returns the value for the `key` if present, otherwise `""`.
 | POST   | /data/`{key}`    | ✅    | Sets the value for the `key` to the request body.
