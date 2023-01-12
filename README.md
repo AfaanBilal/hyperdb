@@ -29,27 +29,36 @@ The following environment variables configure the HTTP server.
 
 | Environment Variable | Default value | Description
 | :------------------- | :------------ | :-----------
-| HYPERDB_HOST         | `0.0.0.0`     | HyperDB HTTP Server Bind Host
-| HYPERDB_PORT         | `8765`        | HyperDB HTTP Server Port
+| HYPERDB_HOST         | `0.0.0.0`     | HyperDB HTTP Server Bind Host.
+| HYPERDB_PORT         | `8765`        | HyperDB HTTP Server Port.
+| HYPERDB_AUTH         | `[blank]`     | Set to `1` to enable JWT authentication.
+| HYPERDB_SECRET       | `[blank]`     | Set the JWT signing secret. Must be set if authentication is enabled.
+| HYPERDB_USERNAME     | `[blank]`     | Set the username. Must be set if authentication is enabled.
+| HYPERDB_PASSWORD     | `[blank]`     | Set the password. Must be set if authentication is enabled.
 
 ---
 
 ## Endpoints
 
-| Method | Path             | Description
-| :----- | :--------------- | :-----------
-| GET    | /                | Version. Example: `[HyperDB v0.1.0 (https://afaan.dev)]`.
-| GET    | /ping            | Ping (returns `PONG`).
-| GET    | /has/`{key}`     | Returns `Yes` if `key` is present, otherwise `No`.
-| GET    | /data/`{key}`    | Returns the value for the `key` if present, otherwise `""`.
-| POST   | /data/`{key}`    | Sets the value for the `key` to the request body.
-| DELETE | /data/`{key}`    | Deletes the `key` and any value associated with it. Returns `OK` on success.
-| GET    | /data            | Get all stored data.
-| DELETE | /data            | Delete all stored data. Returns `OK` on success.
-| GET    | /empty           | Returns `Yes` if the store is empty, otherwise `No`.
-| POST   | /save            | Persist store to file. Returns `OK` on success.
-| POST   | /reload          | Reload store from file. Returns `OK` on success.
-| DELETE | /reset           | Delete all stored data and clear the persistence on file. Returns `OK` on success.
+| Method | Path             | Auth? | Description
+| :----- | :--------------- | :---- | :-----------
+| GET    | /                | ⬜    | Version. Example: `[HyperDB v0.1.0 (https://afaan.dev)]`.
+| GET    | /ping            | ⬜    | Ping (returns `PONG`).
+| POST   | /auth            | ⬜    | Generate JWT.
+| GET    | /has/`{key}`     | ✅    | Returns `Yes` if `key` is present, otherwise `No`.
+| GET    | /data/`{key}`    | ✅    | Returns the value for the `key` if present, otherwise `""`.
+| POST   | /data/`{key}`    | ✅    | Sets the value for the `key` to the request body.
+| DELETE | /data/`{key}`    | ✅    | Deletes the `key` and any value associated with it. Returns `OK` on success.
+| GET    | /data            | ✅    | Get all stored data.
+| DELETE | /data            | ✅    | Delete all stored data. Returns `OK` on success.
+| GET    | /empty           | ✅    | Returns `Yes` if the store is empty, otherwise `No`.
+| POST   | /save            | ✅    | Persist store to file. Returns `OK` on success.
+| POST   | /reload          | ✅    | Reload store from file. Returns `OK` on success.
+| DELETE | /reset           | ✅    | Delete all stored data and clear the persistence on file. Returns `OK` on success.
+
+### Authentication
+- **Generating JWT**: Post to `/auth` with headers `username` and `password`.
+- **All auth required requests**: Add header `Auth` with the JWT as the value.
 
 ---
 

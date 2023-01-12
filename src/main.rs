@@ -1,3 +1,4 @@
+mod auth;
 /**
  * HyperDB
  *
@@ -23,7 +24,10 @@ async fn main() -> std::io::Result<()> {
     let hs = Data::new(Arc::new(Mutex::new(hyper::HyperStore::new("store.hyper"))));
 
     let host: String = env::var("HYPERDB_HOST").unwrap_or(DEFAULT_HOST.to_string());
-    let port: u16 = env::var("HYPERDB_PORT").unwrap_or(DEFAULT_PORT.to_string()).parse().unwrap_or(DEFAULT_PORT);
+    let port: u16 = env::var("HYPERDB_PORT")
+        .unwrap_or(DEFAULT_PORT.to_string())
+        .parse()
+        .unwrap_or(DEFAULT_PORT);
 
     let version = server::version();
     println!("{version}: Server starting on {host}:{port}");
@@ -31,8 +35,10 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(hs.clone())
+            .app_data(Data::new(auth::new()).clone())
             .service(server::index)
             .service(server::ping)
+            .service(server::authenticate)
             .service(server::has)
             .service(server::get)
             .service(server::set)
