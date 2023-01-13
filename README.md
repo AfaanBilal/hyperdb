@@ -4,7 +4,7 @@ HyperDB
 Author: **[Afaan Bilal](https://afaan.dev)**
 
 ## Introduction
-**HyperDB** is an in-memory hyper-fast key-value store written in Rust.
+**HyperDB** is an in-memory hyper-fast key-value store with an HTTP API written in Rust.
 
 ---
 
