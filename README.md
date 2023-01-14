@@ -38,7 +38,26 @@ The following environment variables configure the HTTP server.
 
 ---
 
-## Endpoints
+## Clients
+| Language    | Source            | Package          | Install
+| :---------- | :---------------- | :--------------- | :------
+| Javascript  | [HyperDB JS][1]   | [hyperdb-js][2]  | `npm i hyperdb-js`
+| PHP         | [HyperDB PHP][3]  | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
+| Go          | [HyperDB Go][5]   | [hyperdb-go][6]  | `go get -u github.com/AfaanBilal/hyperdb-go`
+| Python      | [HyperDB Py][7]   | [hyperdb-py][8]  | `pip install hyperdb-py`
+
+[1]: https://github.com/AfaanBilal/hyperdb-js
+[2]: https://www.npmjs.com/package/hyperdb-js
+[3]: https://github.com/AfaanBilal/hyperdb-php
+[4]: https://packagist.org/packages/afaanbilal/hyperdb-php
+[5]: https://github.com/AfaanBilal/hyperdb-go
+[6]: https://pkg.go.dev/github.com/AfaanBilal/hyperdb-go
+[7]: https://github.com/AfaanBilal/hyperdb-py
+[8]: https://pypi.org/project/hyperdb-py
+
+---
+
+## HTTP API Endpoints
 
 | Method | Path             | Auth? | Description
 | :----- | :--------------- | :---- | :-----------
@@ -61,25 +80,6 @@ The following environment variables configure the HTTP server.
 - **All auth required requests**: Add header `Auth` with the JWT as the value.
 - **Token lifetime**: 6 hours.
 - **Token invalid or expired**: `AUTH_FAILED` is returned as response.
-
----
-
-## Clients
-| Language    | Source            | Package          | Install
-| :---------- | :---------------- | :--------------- | :------
-| Javascript  | [HyperDB JS][1]   | [hyperdb-js][2]  | `npm i hyperdb-js`
-| PHP         | [HyperDB PHP][3]  | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
-| Go          | [HyperDB Go][5]   | [hyperdb-go][6]  | `go get -u github.com/AfaanBilal/hyperdb-go`
-| Python      | [HyperDB Py][7]   | [hyperdb-py][8]  | `pip install hyperdb-py`
-
-[1]: https://github.com/AfaanBilal/hyperdb-js
-[2]: https://www.npmjs.com/package/hyperdb-js
-[3]: https://github.com/AfaanBilal/hyperdb-php
-[4]: https://packagist.org/packages/afaanbilal/hyperdb-php
-[5]: https://github.com/AfaanBilal/hyperdb-go
-[6]: https://pkg.go.dev/github.com/AfaanBilal/hyperdb-go
-[7]: https://github.com/AfaanBilal/hyperdb-py
-[8]: https://pypi.org/project/hyperdb-py
 
 ---
 
