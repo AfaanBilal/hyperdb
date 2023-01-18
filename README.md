@@ -57,6 +57,11 @@ The following environment variables configure the HTTP server.
 
 ---
 
+## CLI
+[HyperDB CLI](https://github.com/AfaanBilal/hyperdb-cli) is a command line interface to interact with the HyperDB server.
+
+---
+
 ## HTTP API Endpoints
 
 | Method | Path             | Auth? | Description
