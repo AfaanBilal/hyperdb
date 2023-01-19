@@ -9,7 +9,7 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 ---
 
 ## Run with Docker
-`$ docker run --rm -p 8765:8765 afaanbilal/hyperdb`
+`$ docker run --rm -it -p 8765:8765 afaanbilal/hyperdb`
 
 ````
 [HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 0.0.0.0:8765
