@@ -45,6 +45,7 @@ The following environment variables configure the HTTP server.
 | PHP         | [HyperDB PHP][3]  | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
 | Go          | [HyperDB Go][5]   | [hyperdb-go][6]  | `go get -u github.com/AfaanBilal/hyperdb-go`
 | Python      | [HyperDB Py][7]   | [hyperdb-py][8]  | `pip install hyperdb-py`
+| Rust        | [HyperDB Rust][9] | [hyperdb-rs][10] | `cargo add hyperdb-rs`
 
 [1]: https://github.com/AfaanBilal/hyperdb-js
 [2]: https://www.npmjs.com/package/hyperdb-js
@@ -54,6 +55,8 @@ The following environment variables configure the HTTP server.
 [6]: https://pkg.go.dev/github.com/AfaanBilal/hyperdb-go
 [7]: https://github.com/AfaanBilal/hyperdb-py
 [8]: https://pypi.org/project/hyperdb-py
+[9]: https://github.com/AfaanBilal/hyperdb-rs
+[10]: https://crates.io/crates/hyperdb-rs
 
 ---
 
