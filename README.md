@@ -16,7 +16,7 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 [HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 0.0.0.0:8765
 ````
 
-## Build and Run <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Docker" title="Docker" width="50px" style="float:right" />
+## Build and Run <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash" width="50px" style="float:right" />
 `$ cargo run`
 
 ````
@@ -61,7 +61,7 @@ The following environment variables configure the HTTP server.
 
 ---
 
-## CLI <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Docker" title="Docker" width="50px" style="float:right" />
+## CLI <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash" width="50px" style="float:right" />
 [HyperDB CLI](https://github.com/AfaanBilal/hyperdb-cli) is a command line interface to interact with the HyperDB server.
 
 ---
