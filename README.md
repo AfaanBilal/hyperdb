@@ -8,14 +8,15 @@ Author: **[Afaan Bilal](https://afaan.dev)**
 
 ---
 
-## Run with Docker
+## Run with Docker <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker" width="50px" style="float:right" />
+
 `$ docker run --rm -it -p 8765:8765 afaanbilal/hyperdb`
 
 ````
 [HyperDB v0.1.0 (https://afaan.dev)]: Server starting on 0.0.0.0:8765
 ````
 
-## Build and Run
+## Build and Run <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Docker" title="Docker" width="50px" style="float:right" />
 `$ cargo run`
 
 ````
@@ -39,13 +40,13 @@ The following environment variables configure the HTTP server.
 ---
 
 ## Clients
-| Language    | Source            | Package          | Install
-| :---------- | :---------------- | :--------------- | :------
-| Javascript  | [HyperDB JS][1]   | [hyperdb-js][2]  | `npm i hyperdb-js`
-| PHP         | [HyperDB PHP][3]  | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
-| Go          | [HyperDB Go][5]   | [hyperdb-go][6]  | `go get -u github.com/AfaanBilal/hyperdb-go`
-| Python      | [HyperDB Py][7]   | [hyperdb-py][8]  | `pip install hyperdb-py`
-| Rust        | [HyperDB Rust][9] | [hyperdb-rs][10] | `cargo add hyperdb-rs`
+|| Language    | Source            | Package          | Install
+|:--| :---------- | :---------------- | :--------------- | :------
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript" title="JavaScript" width="20px" />| Javascript  | [HyperDB JS][1]   | [hyperdb-js][2]  | `npm i hyperdb-js`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP" title="PHP" width="20px" />| PHP         | [HyperDB PHP][3]  | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="JavaScript" title="JavaScript" width="20px" />| Go          | [HyperDB Go][5]   | [hyperdb-go][6]  | `go get -u github.com/AfaanBilal/hyperdb-go`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" alt="JavaScript" title="JavaScript" width="20px" />| Python      | [HyperDB Py][7]   | [hyperdb-py][8]  | `pip install hyperdb-py`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" alt="JavaScript" title="JavaScript" width="20px" />| Rust        | [HyperDB Rust][9] | [hyperdb-rs][10] | `cargo add hyperdb-rs`
 
 [1]: https://github.com/AfaanBilal/hyperdb-js
 [2]: https://www.npmjs.com/package/hyperdb-js
@@ -60,7 +61,7 @@ The following environment variables configure the HTTP server.
 
 ---
 
-## CLI
+## CLI <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Docker" title="Docker" width="50px" style="float:right" />
 [HyperDB CLI](https://github.com/AfaanBilal/hyperdb-cli) is a command line interface to interact with the HyperDB server.
 
 ---
