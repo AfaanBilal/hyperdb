@@ -40,13 +40,13 @@ The following environment variables configure the HTTP server.
 ---
 
 ## Clients
-|| Language    | Source            | Package          | Install
+|   | Language    | Source            | Package          | Install
 |:--| :---------- | :---------------- | :--------------- | :------
-|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript" title="JavaScript" width="20px" />| Javascript  | [HyperDB JS][1]   | [hyperdb-js][2]  | `npm i hyperdb-js`
-|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP" title="PHP" width="20px" />| PHP         | [HyperDB PHP][3]  | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
-|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="JavaScript" title="JavaScript" width="20px" />| Go          | [HyperDB Go][5]   | [hyperdb-go][6]  | `go get -u github.com/AfaanBilal/hyperdb-go`
-|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" alt="JavaScript" title="JavaScript" width="20px" />| Python      | [HyperDB Py][7]   | [hyperdb-py][8]  | `pip install hyperdb-py`
-|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" alt="JavaScript" title="JavaScript" width="20px" />| Rust        | [HyperDB Rust][9] | [hyperdb-rs][10] | `cargo add hyperdb-rs`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript" title="JavaScript" width="20px" />| Javascript | [HyperDB JS][1] | [hyperdb-js][2] | `npm i hyperdb-js`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP" title="PHP" width="20px" />| PHP | [HyperDB PHP][3] | [hyperdb-php][4] | `composer require afaanbilal/hyperdb-php`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" alt="Go" title="Go" width="20px" />| Go | [HyperDB Go][5] | [hyperdb-go][6] | `go get -u github.com/AfaanBilal/hyperdb-go`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" alt="Python" title="Python" width="20px" />| Python | [HyperDB Py][7] | [hyperdb-py][8] | `pip install hyperdb-py`
+|<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" alt="Rust" title="Rust" width="20px" />| Rust | [HyperDB Rust][9] | [hyperdb-rs][10] | `cargo add hyperdb-rs`
 
 [1]: https://github.com/AfaanBilal/hyperdb-js
 [2]: https://www.npmjs.com/package/hyperdb-js
