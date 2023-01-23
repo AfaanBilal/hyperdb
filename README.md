@@ -62,7 +62,12 @@ The following environment variables configure the HTTP server.
 ---
 
 ## CLI <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash" width="50px" style="float:right" />
+
 [HyperDB CLI](https://github.com/AfaanBilal/hyperdb-cli) is a command line interface to interact with the HyperDB server.
+
+````
+docker run --rm -it afaanbilal/hyperdb-cli -a http://host.docker.internal:8765
+````
 
 ---
 
