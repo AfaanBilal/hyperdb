@@ -75,7 +75,7 @@ impl HyperStore {
     }
 
     pub fn load_from_file(file: &str) -> HashMap<String, String> {
-        match std::fs::read_to_string(&file) {
+        match std::fs::read_to_string(file) {
             Ok(d) => serde_json::from_str::<HashMap<String, String>>(&d).unwrap(),
             Err(_e) => HashMap::new(),
         }
@@ -111,7 +111,7 @@ mod tests {
         hs.set("super", "fast");
         hs.save_to_file();
 
-        assert_eq!(std::path::Path::new(&hs.file).exists(), true);
+        assert!(std::path::Path::new(&hs.file).exists());
 
         let hs = HyperStore::new("store1.hyper");
         assert_eq!(hs.get("hyper"), "db");
@@ -128,7 +128,7 @@ mod tests {
         hs.set("super", "fast");
         hs.save_to_file();
 
-        assert_eq!(std::path::Path::new(&hs.file).exists(), true);
+        assert!(std::path::Path::new(&hs.file).exists());
 
         hs.set("hyper", "wrong");
         hs.reload();
@@ -142,7 +142,7 @@ mod tests {
     #[test]
     fn start_from_empty() {
         let hs = HyperStore::new(DEFAULT_FILE);
-        assert_eq!(hs.is_empty(), true);
+        assert!(hs.is_empty());
     }
 
     #[test]
@@ -154,14 +154,14 @@ mod tests {
     #[test]
     fn key_not_present() {
         let hs = HyperStore::new(DEFAULT_FILE);
-        assert_eq!(hs.has("hyper"), false);
+        assert!(!hs.has("hyper"));
     }
 
     #[test]
     fn key_is_stored() {
         let mut hs = HyperStore::new(DEFAULT_FILE);
         hs.set("hyper", "db");
-        assert_eq!(hs.has("hyper"), true);
+        assert!(hs.has("hyper"));
     }
 
     #[test]
@@ -169,7 +169,7 @@ mod tests {
         let mut hs = HyperStore::new(DEFAULT_FILE);
         hs.set("hyper", "db");
         hs.delete("hyper");
-        assert_eq!(hs.has("hyper"), false);
+        assert!(!hs.has("hyper"));
     }
 
     #[test]
@@ -183,7 +183,7 @@ mod tests {
     fn not_empty() {
         let mut hs = HyperStore::new(DEFAULT_FILE);
         hs.set("hyper", "db");
-        assert_ne!(hs.is_empty(), true);
+        assert!(!hs.is_empty());
     }
 
     #[test]
@@ -198,6 +198,6 @@ mod tests {
         let mut hs = HyperStore::new(DEFAULT_FILE);
         hs.set("hyper", "db");
         hs.clear();
-        assert_eq!(hs.is_empty(), true);
+        assert!(hs.is_empty());
     }
 }

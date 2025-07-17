@@ -25,7 +25,7 @@ const R_AUTH_FAILED: &str = "AUTH_FAILED";
 pub fn version() -> String {
     format!(
         "[HyperDB v{} (https://afaan.dev)]",
-        option_env!("CARGO_PKG_VERSION").unwrap()
+        env!("CARGO_PKG_VERSION")
     )
 }
 
@@ -43,7 +43,7 @@ pub async fn ping() -> impl Responder {
 pub async fn authenticate(auth: Data<auth::Auth>, req: HttpRequest) -> impl Responder {
     let res = auth::token(auth.into_inner(), req);
 
-    if res == "" {
+    if res.is_empty() {
         return R_INVALID_CREDENTIALS.to_string();
     }
 
@@ -79,7 +79,7 @@ pub async fn get(
         return R_AUTH_FAILED.to_string();
     }
 
-    format!("{}", hs.lock().unwrap().get(&key))
+    hs.lock().unwrap().get(&key).to_string()
 }
 
 #[post("/data/{key}")]
@@ -96,8 +96,8 @@ pub async fn set(
 
     hs.lock()
         .unwrap()
-        .set(&key, &String::from_utf8(bytes.to_vec()).unwrap());
-    format!("{}", hs.lock().unwrap().get(&key))
+        .set(&key, core::str::from_utf8(&bytes).unwrap());
+    hs.lock().unwrap().get(&key).to_string()
 }
 
 #[delete("/data/{key}")]
@@ -125,7 +125,7 @@ pub async fn all(
         return R_AUTH_FAILED.to_string();
     }
 
-    format!("{}", hs.lock().unwrap().all())
+    hs.lock().unwrap().all().to_string()
 }
 
 #[delete("/data")]
