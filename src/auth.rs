@@ -43,7 +43,7 @@ pub fn token(auth: Arc<Auth>, req: HttpRequest) -> String {
     let username = req.headers().get("username").unwrap_or(&default_value);
     let password = req.headers().get("password").unwrap_or(&default_value);
 
-    if username == "" || password == "" {
+    if username.is_empty() || password.is_empty() {
         return "".to_string();
     }
 
@@ -77,12 +77,12 @@ pub fn verify(auth: Arc<Auth>, req: HttpRequest) -> bool {
         .to_str()
         .unwrap_or("");
 
-    if token == "" {
+    if token.is_empty() {
         return false;
     }
 
     let data = decode::<Claims>(
-        &token,
+        token,
         &DecodingKey::from_secret(auth.secret.as_ref()),
         &Validation::new(Algorithm::HS256),
     );
